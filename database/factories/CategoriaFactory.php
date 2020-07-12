@@ -10,6 +10,5 @@ $factory->define(Categoria::class, function (Faker $faker) {
         //
         'nombre' => $faker->name,
         'descripcion' => $faker->text(30),
-        'condicion' => $faker->randomDigit,
     ];
 });

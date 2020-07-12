@@ -34,8 +34,9 @@
 						<td>{{ $ing->estado }}</td>
 						<td><a href="{{ route('ingreso.show', $ing) }}" class="btn btn-primary">detalles</a>
 						<a href="" data-target="#modal-delete-{{ $ing->id }}" data-toggle="modal">
-							<button type="submit" class="btn btn-danger">Anular</button>
+							<button type="submit" class="btn btn-danger">Eliminar</button>
 						</a>
+						<!--<a href="{{ route('ingreso.edit', $ing) }}" class="btn btn-link">Editar</a>-->
 						</td>
 					</tr>
 					@include('compras.ingreso.modal')

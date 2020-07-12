@@ -19,7 +19,7 @@ class IngresoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
    
     /**
@@ -52,7 +52,7 @@ class IngresoController extends Controller
             $totales[$ing->id] = $total; 
             $contador++;
         }
-
+        
         return view('compras.ingreso.index', compact('ingresos', 'query', 'totales')); 
     }
 
@@ -108,7 +108,7 @@ class IngresoController extends Controller
                 
                 $detalle = new articulo_ingreso();
 
-                $detalle->ingresos_id = $ingreso->id;
+                $detalle->ingreso_id = $ingreso->id;
                 $detalle->articulo_id = $articulo_id[$cont];
                 $detalle->cantidad = $cantidad[$cont];
                 $detalle->precio_compra = $precio_compra[$cont];
@@ -158,15 +158,17 @@ class IngresoController extends Controller
     {
         //
 
-        $ingreso = Ingresos::findOrFail($id);
+        $ingreso = Ingresos::with('articulos')->findOrFail($id);
 
         $detalle = $ingreso->articulos;
 
         $personas = Persona::where('tipo_persona', 'Proveedor')->get();
 
-        $articulo = Articulo::where('estado', 'Activo')->get();
+        $articulos = Articulo::where('estado', 'Activo')->get();
 
-        return view('compras.ingreso.edit', compact('ingreso','detalle','personas', 'articulo'));   
+        return view('compras.ingreso.edit', compact('ingreso','detalle','personas', 'articulos'));   
+
+        //return compact('ingreso','detalle','personas', 'articulos');   
     }
 
     /**
@@ -237,8 +239,7 @@ class IngresoController extends Controller
         //
          $ingreso = Ingresos::findOrFail($id);
 
-         $ingreso->estado = "C"; 
-         $ingreso->update();
+         $ingreso->delete();
 
          return Redirect('compras/ingreso');
     }

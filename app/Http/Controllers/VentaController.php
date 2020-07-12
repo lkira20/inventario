@@ -19,7 +19,7 @@ class VentaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
    
     /**
@@ -264,6 +264,16 @@ class VentaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    {
+        //
+        $venta = Venta::findOrFail($id);
+
+        $venta->delete();
+
+         return Redirect('ventas/venta');
+    }
+
+    public function anular($id)
     {
         //
          $venta = Venta::findOrFail($id);

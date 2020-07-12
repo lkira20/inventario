@@ -16,7 +16,7 @@ class CreateArticulosTable extends Migration
         Schema::create('articulos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('categoria_id');
-            $table->string('codigo')->nullable();
+            $table->uuid('codigo');
             $table->string('nombre');
             $table->integer('stock');
             $table->string('descripcion')->nullable();

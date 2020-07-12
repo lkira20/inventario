@@ -24,7 +24,7 @@
 					@foreach($usuarios as $usu)
 					<tr>
 						<td>{{ $usu->id }}</td>
-						<td>{{ $usu->nombre }}</td>
+						<td>{{ $usu->name }}</td>
 						<td>{{ $usu->email }}</td>
 						<td><a href="{{ route('usuario.edit', $usu) }}" class="btn btn-info">Editar</a>
 						<a href="" data-target="#modal-delete-{{ $usu->id }}" data-toggle="modal">

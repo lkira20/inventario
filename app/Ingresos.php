@@ -28,7 +28,7 @@ class Ingresos extends Model
 
 	public function articulos(){
 
-		return $this->belongsToMany('App\Articulo', 'articulo_ingreso')->using('App\articulo_ingreso')->withPivot('cantidad', 'precio_compra', 'precio_venta');
+		return $this->belongsToMany('App\Articulo', 'articulo_ingreso', 'ingreso_id')->using('App\articulo_ingreso')->withPivot('cantidad', 'precio_compra', 'precio_venta');
 	}
 
 }

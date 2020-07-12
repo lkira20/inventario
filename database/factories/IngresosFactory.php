@@ -14,7 +14,7 @@ $factory->define(Ingresos::class, function (Faker $faker) {
         'serie_comprobante' => $faker->numberBetween(1, 10),
         'num_comprobante' => $faker->numberBetween(1, 60000),
         'fecha_hora' => $faker->dateTime,
-        'impuesto' => 18.00,
+        'impuesto' => 18,
         'estado' => 'A'
     ];
 });

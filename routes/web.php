@@ -15,19 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'HomeController@index');
 
-/*
-Route::get('/almacen/categoria/index', function () {
-    return view('almacen.categoria.index');
-});
-
-Route::get('/almacen/categoria/create', function () {
-    return view('almacen.categoria.create');
-});
-*/
 
 
 Route::resource('almacen/categoria', 'CategoriaController');
@@ -50,9 +39,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/{slug?}', 'HomeController@index');
-
-Route::get('/pruebas', function(){
-	return "hola";
-});
+//Route::get('/{slug?}', 'HomeController@index');
 

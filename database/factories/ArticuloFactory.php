@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 $factory->define(Articulo::class, function (Faker $faker) {
     return [
     	'categoria_id' => Categoria::all()->random()->id,
-        'codigo' => Str::random(10),
+        'codigo' => Uuid::generate()->string,
         'nombre' => $faker->name,
         'stock' => 1,
         'descripcion' => $faker->text(50),

@@ -15,7 +15,7 @@ class ArticuloController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
    
     /**
@@ -42,7 +42,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::where('condicion', 1)->get();
+        $categorias = Categoria::get();
 
         return view("almacen.articulo.create", compact('categorias'));
     }
@@ -62,7 +62,7 @@ class ArticuloController extends Controller
         $articulo->codigo = $request->codigo;
         $articulo->stock = $request->stock;
         $articulo->descripcion = $request->descripcion;
-        $articulo->estado = 'Activo';
+        $articulo->estado = "Activo";
 
         if ($archivo = $request->file('imagen')) {
             
@@ -75,7 +75,6 @@ class ArticuloController extends Controller
         }
 
         $articulo->save();
-
         return redirect('almacen/articulo');
     }
     /**
@@ -100,7 +99,7 @@ class ArticuloController extends Controller
     public function edit($id)
     {
         $articulo = Articulo::findOrFail($id);
-        $categorias = Categoria::where('condicion', 1)->get();
+        $categorias = Categoria::get();
 
         return view('almacen.articulo.edit', compact('articulo','categorias'));
     }
@@ -121,7 +120,7 @@ class ArticuloController extends Controller
         $articulo->codigo = $request->codigo;
         $articulo->stock = $request->stock;
         $articulo->descripcion = $request->descripcion;
-        $articulo->estado = 'Activo';
+        $articulo->estado = $request->estado;
 
         if ($archivo = $request->file('imagen')) {
             

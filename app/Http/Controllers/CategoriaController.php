@@ -13,7 +13,7 @@ class CategoriaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
    
     /**
@@ -26,14 +26,14 @@ class CategoriaController extends Controller
         if (!$request) 
         {
                
-            $categorias = Categoria::where('condicion', 1)->orderBy('id', 'desc')->paginate(5);
+            $categorias = Categoria::orderBy('id', 'desc')->paginate(5);
 
             return view('almacen.categoria.index', compact('categorias')); 
         }else 
         {
             $query = $request->searchText;
 
-            $categorias = Categoria::where('nombre', 'LIKE', '%'.$query.'%')->where('condicion', 1)->orderBy('id', 'desc')->paginate(5);
+            $categorias = Categoria::where('nombre', 'LIKE', '%'.$query.'%')->orderBy('id', 'desc')->paginate(5);
                
             return view('almacen.categoria.index', compact('categorias', 'query')); 
         }

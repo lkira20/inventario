@@ -34,7 +34,7 @@
 						<td>{{ $vent->estado }}</td>
 						<td><a href="{{ route('venta.show', $vent) }}" class="btn btn-primary">detalles</a>
 						<a href="" data-target="#modal-delete-{{ $vent->id }}" data-toggle="modal">
-							<button type="submit" class="btn btn-danger">Anular</button>
+							<button type="submit" class="btn btn-danger">Eliminar</button>
 						</a>
 						</td>
 					</tr>

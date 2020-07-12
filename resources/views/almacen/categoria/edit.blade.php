@@ -28,12 +28,6 @@
 				<input type="text" name="descripcion" placeholder="Descripcion" class="form-control" value="{{ $categoria->descripcion }}">
 			</div>
 			<div class="form-group">
-				<select class="form-control" name="condicion" value="{{ $categoria->condicion }}">
- 				 <option value="1">Activo</option>
- 				 <option value="2">Inactivo</option>
-				</select>
-			</div>
-			<div class="form-group">
 				<button class="btn btn-primary" type="submit">Agregar</button>
 			</div>
 			<div class="form-group">
